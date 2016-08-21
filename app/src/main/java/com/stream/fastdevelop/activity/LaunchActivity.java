@@ -34,6 +34,7 @@ public class LaunchActivity extends Activity {
             switch (msg.what){
                 case 1:
                     jumpToMainActivity();
+                    finish();
                     break;
             }
         }
