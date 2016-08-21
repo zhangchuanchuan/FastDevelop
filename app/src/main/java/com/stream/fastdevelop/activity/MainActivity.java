@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.stream.fastdevelop.R;
 import com.stream.fastdevelop.fragment.CommonFragment;
+import com.stream.fastdevelop.fragment.ViewDemoFragment;
 
 /**
  * description：
@@ -31,6 +32,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     private void findViewAndSetOnclick() {
         findViewById(R.id.common).setOnClickListener(this);
+        findViewById(R.id.view_demo).setOnClickListener(this);
     }
 
 
@@ -39,6 +41,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
         switch (v.getId()){
             case R.id.common:
                 CommonActivity.jumpToMe(this, CommonFragment.class.getName());
+                break;
+            case R.id.view_demo:
+                CommonActivity.jumpToMe(this, ViewDemoFragment.class.getName());
                 break;
         }
     }
