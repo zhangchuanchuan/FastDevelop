@@ -14,4 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="View Demo Fragment"/>
+    <Button
+        android:id="@+id/adapter_demo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adapter Demo Fragment"/>
 </LinearLayout>

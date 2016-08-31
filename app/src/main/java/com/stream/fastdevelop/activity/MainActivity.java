@@ -6,8 +6,12 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.stream.fastdevelop.R;
+import com.stream.fastdevelop.fragment.CommonAdapterDemoFragment;
 import com.stream.fastdevelop.fragment.CommonFragment;
 import com.stream.fastdevelop.fragment.ViewDemoFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * description：
@@ -31,9 +35,17 @@ public class MainActivity extends Activity implements View.OnClickListener{
     }
 
     private void findViewAndSetOnclick() {
-        findViewById(R.id.common).setOnClickListener(this);
-        findViewById(R.id.view_demo).setOnClickListener(this);
+        List<Integer> list = new ArrayList<>();
+        list.add(R.id.common);
+        list.add(R.id.view_demo);
+        list.add(R.id.adapter_demo);
+
+        for(Integer i : list){
+            findViewById(i).setOnClickListener(this);
+        }
     }
+
+
 
 
     @Override
@@ -44,6 +56,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.view_demo:
                 CommonActivity.jumpToMe(this, ViewDemoFragment.class.getName());
+                break;
+            case R.id.adapter_demo:
+                CommonActivity.jumpToMe(this, CommonAdapterDemoFragment.class.getName());
                 break;
         }
     }
