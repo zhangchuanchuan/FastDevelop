@@ -1,6 +1,8 @@
 package com.stream.fastdevelop.config;
 
 import android.app.Application;
+import android.content.Context;
+import android.util.Log;
 
 import com.stream.fastdevelop.utils.LogUtils;
 
@@ -15,12 +17,18 @@ import com.stream.fastdevelop.utils.LogUtils;
  * Modify time：
  */
 public class MyApplication extends Application {
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        LogUtils.d("zccTest", "attach base context");
+    }
 
     String TAG = "MyApplication";
     @Override
     public void onCreate() {
         super.onCreate();
         Config.initConfig();
+        LogUtils.d("zccTest", "application on create");
     }
 
     @Override

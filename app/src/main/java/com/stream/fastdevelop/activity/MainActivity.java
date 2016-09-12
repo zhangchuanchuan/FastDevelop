@@ -2,16 +2,15 @@ package com.stream.fastdevelop.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.Toast;
 
 import com.stream.fastdevelop.R;
 import com.stream.fastdevelop.fragment.CommonAdapterDemoFragment;
 import com.stream.fastdevelop.fragment.CommonFragment;
+import com.stream.fastdevelop.fragment.MemoryOptimized;
 import com.stream.fastdevelop.fragment.ViewDemoFragment;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * description：
@@ -27,21 +26,28 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     private long lastBackTime = 0;
 
+    private SparseArray<String> list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initArgs();
+    }
+
+    private void initArgs() {
+        list = new SparseArray<>();
+        list.put(R.id.common, CommonFragment.class.getName());
+        list.put(R.id.view_demo, ViewDemoFragment.class.getName());
+        list.put(R.id.adapter_demo, CommonAdapterDemoFragment.class.getName());
+        list.put(R.id.memory_optimized, MemoryOptimized.class.getName());
         findViewAndSetOnclick();
     }
 
     private void findViewAndSetOnclick() {
-        List<Integer> list = new ArrayList<>();
-        list.add(R.id.common);
-        list.add(R.id.view_demo);
-        list.add(R.id.adapter_demo);
 
-        for(Integer i : list){
-            findViewById(i).setOnClickListener(this);
+        for(int i = 0; i < list.size(); i++){
+            findViewById(list.keyAt(i)).setOnClickListener(this);
         }
     }
 
@@ -50,17 +56,12 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.common:
-                CommonActivity.jumpToMe(this, CommonFragment.class.getName());
-                break;
-            case R.id.view_demo:
-                CommonActivity.jumpToMe(this, ViewDemoFragment.class.getName());
-                break;
-            case R.id.adapter_demo:
-                CommonActivity.jumpToMe(this, CommonAdapterDemoFragment.class.getName());
-                break;
+        for(int i = 0; i < list.size(); i++){
+            if(list.keyAt(i) == v.getId()){
+                CommonActivity.jumpToMe(this, list.get(list.keyAt(i)));
+            }
         }
+
     }
 
     @Override

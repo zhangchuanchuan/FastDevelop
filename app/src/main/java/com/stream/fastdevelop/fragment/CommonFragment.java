@@ -14,6 +14,15 @@ import com.stream.fastdevelop.R;
  * 通用的fragment
  */
 public class CommonFragment extends Fragment {
+
+    String TAG = "";
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TAG = getClass().getSimpleName();
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
