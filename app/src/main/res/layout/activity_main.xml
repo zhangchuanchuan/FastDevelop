@@ -4,25 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <Button
-        android:id="@+id/common"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/button_list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Common Fragment"/>
-    <Button
-        android:id="@+id/view_demo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View Demo Fragment"/>
-    <Button
-        android:id="@+id/adapter_demo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Adapter Demo Fragment"/>
-    <Button
-        android:id="@+id/memory_optimized"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Memory Optimized"/>
+        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

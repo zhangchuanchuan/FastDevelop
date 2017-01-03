@@ -1,17 +1,25 @@
 package com.stream.fastdevelop.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.Toast;
 
 import com.stream.fastdevelop.R;
+import com.stream.fastdevelop.adapter.ButtonAdapter;
 import com.stream.fastdevelop.fragment.CommonAdapterDemoFragment;
 import com.stream.fastdevelop.fragment.CommonFragment;
 import com.stream.fastdevelop.fragment.MemoryOptimized;
 import com.stream.fastdevelop.fragment.ViewDemoFragment;
 import com.stream.fastdevelop.utils.LogUtils;
+import com.stream.fastdevelop.vo.ButtonVo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * description：
@@ -23,47 +31,43 @@ import com.stream.fastdevelop.utils.LogUtils;
  * Modifier：
  * Modify time：
  */
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity{
 
     private long lastBackTime = 0;
 
-    private SparseArray<String> list;
+    private List<ButtonVo> list;
+
+    private RecyclerView mButtonListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mButtonListView = (RecyclerView) findViewById(R.id.button_list_view);
         initArgs();
     }
 
     private void initArgs() {
-        list = new SparseArray<>();
-        list.put(R.id.common, CommonFragment.class.getName());
-        list.put(R.id.view_demo, ViewDemoFragment.class.getName());
-        list.put(R.id.adapter_demo, CommonAdapterDemoFragment.class.getName());
-        list.put(R.id.memory_optimized, MemoryOptimized.class.getName());
-        findViewAndSetOnclick();
-    }
-
-    private void findViewAndSetOnclick() {
-
-        for(int i = 0; i < list.size(); i++){
-            findViewById(list.keyAt(i)).setOnClickListener(this);
-        }
-    }
-
-
-
-
-    @Override
-    public void onClick(View v) {
-        for(int i = 0; i < list.size(); i++){
-            if(list.keyAt(i) == v.getId()){
-                CommonActivity.jumpToMe(this, list.get(list.keyAt(i)));
+        list = new ArrayList<>();
+        list.add(new ButtonVo("通用", CommonFragment.class.getName()));
+        list.add(new ButtonVo("view demo", ViewDemoFragment.class.getName()));
+        list.add(new ButtonVo("adapter", CommonAdapterDemoFragment.class.getName()));
+        list.add(new ButtonVo("内存优化", MemoryOptimized.class.getName()));
+        ButtonAdapter adapter = new ButtonAdapter(this, list, new ButtonAdapter.ItemCLickListener() {
+            @Override
+            public void onItemClicked(ButtonVo vo) {
+                CommonActivity.jumpToMe(MainActivity.this, vo.getJumpFragmentName());
             }
-        }
+        });
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
+        mButtonListView.setLayoutManager(manager);
+        mButtonListView.setAdapter(adapter);
 
     }
+
+
+
+
 
     @Override
     public void onBackPressed() {
