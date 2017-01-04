@@ -14,6 +14,7 @@ import com.stream.fastdevelop.adapter.ButtonAdapter;
 import com.stream.fastdevelop.fragment.CommonAdapterDemoFragment;
 import com.stream.fastdevelop.fragment.CommonFragment;
 import com.stream.fastdevelop.fragment.MemoryOptimized;
+import com.stream.fastdevelop.fragment.RetrofitFragment;
 import com.stream.fastdevelop.fragment.ViewDemoFragment;
 import com.stream.fastdevelop.utils.LogUtils;
 import com.stream.fastdevelop.vo.ButtonVo;
@@ -53,6 +54,7 @@ public class MainActivity extends BaseActivity{
         list.add(new ButtonVo("view demo", ViewDemoFragment.class.getName()));
         list.add(new ButtonVo("adapter", CommonAdapterDemoFragment.class.getName()));
         list.add(new ButtonVo("内存优化", MemoryOptimized.class.getName()));
+        list.add(new ButtonVo("ob demo", RetrofitFragment.class.getName()));
         ButtonAdapter adapter = new ButtonAdapter(this, list, new ButtonAdapter.ItemCLickListener() {
             @Override
             public void onItemClicked(ButtonVo vo) {
