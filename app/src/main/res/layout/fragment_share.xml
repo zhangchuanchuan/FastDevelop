@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <Button
+        android:id="@+id/weixin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分享到微信"/>
+
+    <Button
+        android:id="@+id/weixinQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分享到朋友圈"/>
+
+    <Button
+        android:id="@+id/qq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分享到QQ"/>
+
+    <Button
+        android:id="@+id/qqQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分享到空间"/>
+
+    <Button
+        android:id="@+id/weibo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分享到微博"/>
+
+</LinearLayout>

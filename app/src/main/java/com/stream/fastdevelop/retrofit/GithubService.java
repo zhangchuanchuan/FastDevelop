@@ -19,4 +19,6 @@ import retrofit2.http.Path;
 public interface GithubService {
     @GET("users/{user}/repos")
     Call<List<Repo>> listRepos(@Path("user") String user);
+
+    //TODO 添加各种各样的API到这个类
 }

@@ -1,15 +1,18 @@
-package com.stream.fastdevelop.fragment;
+package com.stream.fastdevelop.mvp;
 
 /**
  * description：
  * ===============================
  * creator：ZhangChuanchuan
- * create time：2017/1/3 18:14
+ * create time：2017/1/6 14:04
  * ===============================
  * reasons for modification：
  * Modifier：
  * Modify time：
  */
 
-public class RetrofitDemoFragment extends CommonFragment {
+abstract class Presenter {
+    abstract void initData();
+
+    abstract void upData();
 }

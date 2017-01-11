@@ -2,12 +2,20 @@ package com.stream.fastdevelop.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import rx.Observable;
-import rx.Subscriber;
+import com.stream.fastdevelop.retrofit.GithubService;
+import com.stream.fastdevelop.retrofit.Repo;
+import com.stream.fastdevelop.retrofit.RetrofitClient;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * description：
@@ -32,13 +40,29 @@ public class RetrofitFragment extends CommonFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        GithubService service = RetrofitClient.getRetrofitClient()
+                .create(GithubService.class);
+        Call<List<Repo>> call = service.listRepos("zhangchuanchuan");
 
-        Observable.create(new Observable.OnSubscribe(){
+        //异步请求
+        call.enqueue(new Callback<List<Repo>>() {
             @Override
-            public void call(Object o) {
-                throw new RuntimeException();
+            public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
+                Log.d("zcc", response.body().toString());
+            }
+
+            @Override
+            public void onFailure(Call<List<Repo>> call, Throwable t) {
+
             }
         });
+
+//        Observable.create(new Observable.OnSubscribe(){
+//            @Override
+//            public void call(Object o) {
+//                throw new RuntimeException();
+//            }
+//        });
 
 
     }

@@ -13,8 +13,10 @@ import com.stream.fastdevelop.R;
 import com.stream.fastdevelop.adapter.ButtonAdapter;
 import com.stream.fastdevelop.fragment.CommonAdapterDemoFragment;
 import com.stream.fastdevelop.fragment.CommonFragment;
+import com.stream.fastdevelop.fragment.DrawDemoFragment;
 import com.stream.fastdevelop.fragment.MemoryOptimized;
 import com.stream.fastdevelop.fragment.RetrofitFragment;
+import com.stream.fastdevelop.fragment.ShareFragment;
 import com.stream.fastdevelop.fragment.ViewDemoFragment;
 import com.stream.fastdevelop.utils.LogUtils;
 import com.stream.fastdevelop.vo.ButtonVo;
@@ -55,6 +57,8 @@ public class MainActivity extends BaseActivity{
         list.add(new ButtonVo("adapter", CommonAdapterDemoFragment.class.getName()));
         list.add(new ButtonVo("内存优化", MemoryOptimized.class.getName()));
         list.add(new ButtonVo("ob demo", RetrofitFragment.class.getName()));
+        list.add(new ButtonVo("draw view", DrawDemoFragment.class.getName()));
+        list.add(new ButtonVo("share demo", ShareFragment.class.getName()));
         ButtonAdapter adapter = new ButtonAdapter(this, list, new ButtonAdapter.ItemCLickListener() {
             @Override
             public void onItemClicked(ButtonVo vo) {
