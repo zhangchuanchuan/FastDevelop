@@ -1,5 +1,6 @@
 package com.stream.fastdevelop.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -7,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.stream.fastdevelop.R;
+import com.stream.fastdevelop.activity.WeiboShareActivity;
+import com.stream.fastdevelop.share.ShareParams;
+import com.stream.fastdevelop.share.WeiboShare;
 
 /**
  * description：
@@ -48,6 +52,9 @@ public class ShareFragment extends CommonFragment implements View.OnClickListene
             case R.id.qqQ:
                 break;
             case R.id.weibo:
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), WeiboShareActivity.class);
+                startActivity(intent);
                 break;
         }
     }

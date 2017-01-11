@@ -27,12 +27,25 @@
         </activity>
         <activity
             android:name=".activity.CommonActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
 
-        <activity android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
-                  android:configChanges="keyboardHidden|orientation"
-                  android:windowSoftInputMode="adjustResize"
-                  android:exported="false" >
+        </activity>
+
+        <activity
+            android:name=".activity.WeiboShareActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" >
         </activity>
 
     </application>

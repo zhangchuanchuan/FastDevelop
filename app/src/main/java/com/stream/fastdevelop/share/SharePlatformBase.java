@@ -1,6 +1,6 @@
 package com.stream.fastdevelop.share;
 
-import android.content.Context;
+import android.app.Activity;
 
 /**
  * description：
@@ -14,5 +14,5 @@ import android.content.Context;
  */
 
 public abstract class SharePlatformBase {
-    abstract void share(Context context, ShareParams params);
+    public abstract void share(Activity activity, ShareParams params);
 }

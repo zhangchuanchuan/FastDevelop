@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import com.stream.fastdevelop.utils.AppUtils;
 import com.stream.fastdevelop.utils.LogUtils;
 
 /**
@@ -21,6 +22,7 @@ public class MyApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         LogUtils.d("zccTest", "attach base context");
+        AppUtils.appContext = base;
     }
 
     String TAG = "MyApplication";

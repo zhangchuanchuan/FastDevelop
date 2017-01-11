@@ -6,13 +6,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.sina.weibo.sdk.api.share.BaseRequest;
+import com.sina.weibo.sdk.api.share.IWeiboHandler;
+import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
 import com.stream.fastdevelop.fragment.CommonFragment;
 
 /**
  * Created by 张川川 on 2016/8/21.
  * 通用的Activity
  */
-public class CommonActivity extends Activity {
+public class CommonActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
