@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <Button
+        android:id="@+id/share_client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分享到微博（客户端）"/>
+
+    <Button
+        android:id="@+id/share_web"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分享到微博（web）"/>
+
+    <Button
+        android:id="@+id/share_auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分享到微博（智能）"/>
+
+    <Button
+        android:id="@+id/one_share_auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="一键分享到微博（智能授权）"/>
+
+    <Button
+        android:id="@+id/one_share_web"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="一键分享到微博（web授权）"/>
+
+</LinearLayout>

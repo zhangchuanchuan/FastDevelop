@@ -15,7 +15,9 @@ import com.stream.fastdevelop.fragment.CommonAdapterDemoFragment;
 import com.stream.fastdevelop.fragment.CommonFragment;
 import com.stream.fastdevelop.fragment.DrawDemoFragment;
 import com.stream.fastdevelop.fragment.MemoryOptimized;
+import com.stream.fastdevelop.fragment.PermissionFragment;
 import com.stream.fastdevelop.fragment.RetrofitFragment;
+import com.stream.fastdevelop.fragment.RxJavaDemoFragment;
 import com.stream.fastdevelop.fragment.ShareFragment;
 import com.stream.fastdevelop.fragment.ViewDemoFragment;
 import com.stream.fastdevelop.utils.LogUtils;
@@ -59,6 +61,8 @@ public class MainActivity extends BaseActivity{
         list.add(new ButtonVo("ob demo", RetrofitFragment.class.getName()));
         list.add(new ButtonVo("draw view", DrawDemoFragment.class.getName()));
         list.add(new ButtonVo("share demo", ShareFragment.class.getName()));
+        list.add(new ButtonVo("RxJava", RxJavaDemoFragment.class.getName()));
+        list.add(new ButtonVo("permission", PermissionFragment.class.getName()));
         ButtonAdapter adapter = new ButtonAdapter(this, list, new ButtonAdapter.ItemCLickListener() {
             @Override
             public void onItemClicked(ButtonVo vo) {
